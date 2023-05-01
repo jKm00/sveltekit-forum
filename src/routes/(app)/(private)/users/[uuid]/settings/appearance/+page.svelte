@@ -1,5 +1,7 @@
 <script lang="ts">
+	import ThemeSelector from '@/lib/components/ThemeSelector.svelte';
+
 	export let data;
 </script>
 
-<p class="text-center">Appearance settings for user with uuid: {data.uuid}</p>
+<ThemeSelector availableThemes={data.themes} />

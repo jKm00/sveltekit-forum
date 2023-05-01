@@ -1,5 +1,5 @@
-import { redirect } from "@sveltejs/kit";
+import { redirect, type Load } from "@sveltejs/kit";
 
-export const load = async () => {
+export const load: Load = async () => {
   throw redirect(301, "/")
 };
