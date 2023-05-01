@@ -1,4 +1,4 @@
-<div class="h-screen grid place-items-center">
+<div class="flex flex-grow justify-center items-center">
 	<div>
 		<h1 class="text-4xl font-bold text-center mb-12"><a href="/">SvelteKit Forum</a></h1>
 		<div class="flex bg-neutral-800 rounded shadow overflow-hidden">

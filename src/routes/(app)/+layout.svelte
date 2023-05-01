@@ -7,8 +7,6 @@
 		avatar: string;
 	};
 
-	export let data;
-
 	let user: undefined | User = {
 		uuid: 'a3094d9e-e79a-11ed-a05b-0242ac120003',
 		username: 'Joakim',
@@ -48,8 +46,3 @@
 <div class="max-w-5xl m-auto w-full flex-grow">
 	<slot />
 </div>
-
-<footer class="py-4 text-center text-neutral-600 text-sm">
-	<p>Joakim Edvardsen &copy 2023. All rights reserved</p>
-	<p>Version {data.version}</p>
-</footer>
