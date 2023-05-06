@@ -1,14 +1,6 @@
 import { browser } from "$app/environment";
+import type { Theme } from "@/models/Theme";
 import { writable } from "svelte/store";
-
-export type Theme = {
-  id: number,
-  name: string,
-  bg: string,
-  bgHover: string,
-  bgActive: string,
-  text: string
-}
 
 const defaultValue = {
 			id: 0,

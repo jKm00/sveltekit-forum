@@ -23,6 +23,7 @@
 			<li>Styling with Tailwind</li>
 			<li>Loading url params with SvelteKit's load function</li>
 			<li>Theming</li>
+			<li>Reading of posts</li>
 		</ul>
 	</section>
 
@@ -31,7 +32,7 @@
 		<ul class="list-disc pl-5">
 			<li>Authentication with OAuth providers</li>
 			<li>Database management with Prisma</li>
-			<li>CRUD for forum posts</li>
+			<li>C<span class="line-through">R</span>UD for forum posts</li>
 			<li>Commenting with nested comments</li>
 			<li>Like functionality</li>
 			<li>Label for posts</li>
