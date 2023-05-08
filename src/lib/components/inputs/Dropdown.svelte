@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { theme } from '@/stores/theme';
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import { clickOutside } from 'svelte-use-click-outside';
 
 	interface Option {
@@ -15,7 +15,14 @@
 
 	let selected: Option | null = null;
 
+	let dropDown: HTMLElement;
 	let showDropDown = false;
+
+	const handleKeyUp = (event: KeyboardEvent) => {
+		if (event.code === 'Escape') {
+			showDropDown = false;
+		}
+	};
 
 	const updateSelected = (option: Option | null) => {
 		selected = option;
@@ -25,7 +32,12 @@
 	$: dispatch('update', { value: selected?.value ?? '' });
 </script>
 
-<div class="relative w-40 text-sm" use:clickOutside={() => (showDropDown = false)}>
+<div
+	class="relative w-40 text-sm"
+	use:clickOutside={() => (showDropDown = false)}
+	bind:this={dropDown}
+	on:keyup={handleKeyUp}
+>
 	<!-- Selected value or placeholder -->
 	<button
 		class="flex justify-between min-w-full items-center p-2 rounded bg-neutral-800 hover:bg-neutral-700 focus-within:bg-neutral-700 active:bg-neutral-600"

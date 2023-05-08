@@ -1,8 +1,8 @@
 <script lang="ts">
 	import PostSocial from '@/lib/components/design/PostSocial.svelte';
 	import Dropdown from '@/lib/components/inputs/Dropdown.svelte';
-	import type { Post } from '@/models/Post';
 	import { theme } from '@/stores/theme';
+	import type { Post } from '@prisma/client';
 
 	export let data;
 
@@ -60,9 +60,9 @@
 			<article class="grid gap-10 bg-neutral-800 py-4 px-6 rounded shadow">
 				<header class="flex justify-between">
 					<h2 class="text-xl font-bold">{post.title}</h2>
-					<p class="text-sm text-neutral-400">{post.author}</p>
+					<p class="text-sm text-neutral-400">tmp author</p>
 				</header>
-				<p class="">{post.body}</p>
+				<p class="">{post.content}</p>
 				<footer class="flex gap-10 text-neutral-400">
 					<PostSocial>
 						<span slot="icon">
@@ -72,7 +72,7 @@
 								/></svg
 							>
 						</span>
-						<span slot="label">{post.likes}</span>
+						<span slot="label">10</span>
 					</PostSocial>
 					<PostSocial>
 						<span slot="icon">
@@ -82,7 +82,7 @@
 								/></svg
 							>
 						</span>
-						<span slot="label">{post.likes}</span>
+						<span slot="label">13</span>
 					</PostSocial>
 					<PostSocial>
 						<span slot="icon">
@@ -92,7 +92,7 @@
 								/></svg
 							>
 						</span>
-						<span slot="label">{post.likes}</span>
+						<span slot="label">21</span>
 					</PostSocial>
 				</footer>
 			</article>

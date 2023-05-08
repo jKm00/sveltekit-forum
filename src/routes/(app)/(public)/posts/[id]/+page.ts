@@ -1,5 +1,3 @@
-import type { PageLoad } from "./$types";
-
 export const load = async ({ fetch, params }) => {
   
   const id = Number(params.id)

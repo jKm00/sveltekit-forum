@@ -4,7 +4,7 @@ export const dummyPosts: Post[] = [
 		{
 			id: 1,
 			title: 'Introduction to TypeScript',
-			body: 'TypeScript is a strongly-typed superset of JavaScript that compiles to plain JavaScript.',
+			content: 'TypeScript is a strongly-typed superset of JavaScript that compiles to plain JavaScript.',
 			author: 'John Doe',
 			likes: 20,
 			comments: 10,
@@ -13,7 +13,7 @@ export const dummyPosts: Post[] = [
 		{
 			id: 2,
 			title: 'The Benefits of Using React for Front-End Development',
-			body: 'React is a popular JavaScript library for building user interfaces. It offers a number of benefits, such as component reusability and improved performance.',
+			content: 'React is a popular JavaScript library for building user interfaces. It offers a number of benefits, such as component reusability and improved performance.',
 			author: 'Jane Smith',
 			likes: 30,
 			comments: 12,
@@ -22,7 +22,7 @@ export const dummyPosts: Post[] = [
 		{
 			id: 3,
 			title: 'How to Use Git for Version Control',
-			body: 'Git is a popular version control system that allows you to track changes in your codebase over time. It offers a number of useful features, such as branching and merging.',
+			content: 'Git is a popular version control system that allows you to track changes in your codebase over time. It offers a number of useful features, such as branching and merging.',
 			author: 'Bob Johnson',
 			likes: 15,
 			comments: 8,
@@ -31,7 +31,7 @@ export const dummyPosts: Post[] = [
 		{
 			id: 4,
 			title: 'Tips for Effective Time Management',
-			body: 'Effective time management is crucial for productivity and success. Some tips include prioritizing tasks, minimizing distractions, and delegating responsibilities when possible.',
+			content: 'Effective time management is crucial for productivity and success. Some tips include prioritizing tasks, minimizing distractions, and delegating responsibilities when possible.',
 			author: 'Samantha Lee',
 			likes: 25,
 			comments: 6,
@@ -40,7 +40,7 @@ export const dummyPosts: Post[] = [
 		{
 			id: 5,
 			title: 'The Importance of Regular Exercise',
-			body: 'Regular exercise has many benefits, such as improved physical health, reduced stress levels, and increased energy. Some popular forms of exercise include running, yoga, and weightlifting.',
+			content: 'Regular exercise has many benefits, such as improved physical health, reduced stress levels, and increased energy. Some popular forms of exercise include running, yoga, and weightlifting.',
 			author: 'David Kim',
 			likes: 18,
 			comments: 4,
@@ -49,7 +49,7 @@ export const dummyPosts: Post[] = [
 		{
 			id: 6,
 			title: 'Introduction to Object-Oriented Programming',
-			body: 'Object-oriented programming is a programming paradigm that uses objects to represent and manipulate data. It offers a number of benefits, such as code reusability and improved organization.',
+			content: 'Object-oriented programming is a programming paradigm that uses objects to represent and manipulate data. It offers a number of benefits, such as code reusability and improved organization.',
 			author: 'Emily Chen',
 			likes: 35,
 			comments: 15,
@@ -58,7 +58,7 @@ export const dummyPosts: Post[] = [
 		{
 			id: 7,
 			title: 'The Basics of HTML and CSS',
-			body: 'HTML and CSS are the foundation of web development. HTML is used to structure content on a webpage, while CSS is used to style and layout the content. Learning these languages is essential for creating websites.',
+			content: 'HTML and CSS are the foundation of web development. HTML is used to structure content on a webpage, while CSS is used to style and layout the content. Learning these languages is essential for creating websites.',
 			author: 'Michael Wong',
 			likes: 22,
 			comments: 9,
@@ -67,7 +67,7 @@ export const dummyPosts: Post[] = [
 		{
 			id: 8,
 			title: 'Common Interview Questions and How to Answer Them',
-			body: "Interviews can be nerve-wracking, but preparation can help. Some common interview questions include 'Tell me about yourself' and 'What are your strengths and weaknesses?' Practicing your answers can help you feel more confident during the interview.",
+			content: "Interviews can be nerve-wracking, but preparation can help. Some common interview questions include 'Tell me about yourself' and 'What are your strengths and weaknesses?' Practicing your answers can help you feel more confident during the interview.",
 			author: 'Amy Smith',
 			likes: 28,
 			comments: 11,
