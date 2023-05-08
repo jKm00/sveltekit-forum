@@ -29,6 +29,7 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "4.13.0",
-		"svelte-use-click-outside": "^1.0.0"
+		"svelte-use-click-outside": "^1.0.0",
+		"zod": "^3.21.4"
 	}
 }
