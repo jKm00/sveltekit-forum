@@ -74,7 +74,7 @@
 	<aside class="grid content-start gap-4 w-44">
 		<a
 			class={data.activePage === 'settings' ? $theme.text : ''}
-			href={`/users/${data.uuid}/settings`}>Settings</a
+			href={`/users/${data.username}/settings`}>Settings</a
 		>
 		{#each settings as settingGroup}
 			<div class="border-b pb-2">
@@ -84,7 +84,7 @@
 						<li>
 							<a
 								class={`block py-1 ${settingPage.slug === data.activePage ? $theme.text : ''}`}
-								href={`/users/${data.uuid}/settings/${settingPage.slug}`}>{settingPage.name}</a
+								href={`/users/${data.username}/settings/${settingPage.slug}`}>{settingPage.name}</a
 							>
 						</li>
 					{/each}

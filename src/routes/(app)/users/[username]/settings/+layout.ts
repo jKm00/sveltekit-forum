@@ -6,7 +6,7 @@ export const load: Load = async ({ params, url }) => {
   const activePage = pathnames[pathnames.length - 1]
 
   return {
-    uuid: params.uuid,
+    username: params.username,
     activePage
   }
 };

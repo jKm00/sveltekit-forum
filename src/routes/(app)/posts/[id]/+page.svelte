@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { theme } from '@/stores/theme.js';
-	import type { Post } from '@prisma/client';
 
 	export let data;
 
@@ -37,10 +36,12 @@
 		</header>
 		<p>{post.content}</p>
 	</article>
-	<form action={`?/deletePost&id=${post.id}`} method="POST">
-		<button
-			class={`${$theme.bg} hover:${$theme.bgHover} focus-within:${$theme.bgHover} active:${$theme.bgActive} rounded p-2`}
-			type="submit">Delete post</button
-		>
-	</form>
+	{#if data.user.userId === post.user.id}
+		<form action={`?/deletePost&id=${post.id}`} method="POST">
+			<button
+				class={`${$theme.bg} hover:${$theme.bgHover} focus-within:${$theme.bgHover} active:${$theme.bgActive} rounded p-2`}
+				type="submit">Delete post</button
+			>
+		</form>
+	{/if}
 </div>

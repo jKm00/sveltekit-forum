@@ -1,6 +1,3 @@
-import { auth } from '@/lib/server/lucia';
-import { fail } from '@sveltejs/kit';
-
 export const load = async ({ fetch, locals }) => {
   const fetchVersion = async () => {
     const res = await fetch('/api/versions')
