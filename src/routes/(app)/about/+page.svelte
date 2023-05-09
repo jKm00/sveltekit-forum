@@ -39,6 +39,11 @@
 					target="_blank">Lucia Auth</a
 				>
 			</li>
+			<li>
+				<a class="hover:underline focus-within:underline" href="https://zod.dev/" target="_blank"
+					>Zod</a
+				>
+			</li>
 		</ul>
 	</section>
 
@@ -58,6 +63,7 @@
 			</li>
 			<li>Loading url params with SvelteKit's load function</li>
 			<li>CRUD operations on content with SvelteKit's form actions</li>
+			<li>Form validation with <a class="underline" href="https://zod.dev/">Zod</a></li>
 			<li>
 				Authentication with <a class="underline" href="https://lucia-auth.com/" target="_blank"
 					>Lucia</a

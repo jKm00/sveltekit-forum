@@ -44,13 +44,14 @@
 </script>
 
 <header class={`flex justify-between items-center mb-10`}>
-	<form action="">
+	<!-- TODO: hide until feature is working -->
+	{#if false}
 		<Dropdown
 			placeholder="Order by"
 			options={filterOptions}
 			on:update={(event) => sortPosts(event)}
 		/>
-	</form>
+	{/if}
 	<a href="/posts" class={`${$theme.bg} rounded p-2 text-sm`}>New Thread</a>
 </header>
 

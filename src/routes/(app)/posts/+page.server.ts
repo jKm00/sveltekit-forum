@@ -7,7 +7,7 @@ export const actions: Actions = {
 
     const { user, session } = await locals.auth.validateUser()
     if (!(user && session)) {
-      throw redirect(302, '/login?redirectTo=/post')
+      throw redirect(302, '/login?redirectTo=/posts')
     }
 
     const { title, content } = Object.fromEntries(await request.formData()) as Record<string, string>
