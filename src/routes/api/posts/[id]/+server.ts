@@ -6,7 +6,12 @@ export const GET = async ({ params }) => {
 
   try {
     const post = await prisma.post.findFirst({
-      where: { id: id }
+      where: { 
+        id: id 
+      },
+      include: {
+        user: true
+      }
     })
 
     return new Response(JSON.stringify(post), { status: 200 })

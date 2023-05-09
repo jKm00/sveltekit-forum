@@ -1,4 +1,6 @@
-export const load = async ({ fetch, params }) => {
+import type { PageLoad } from "./$types";
+
+export const load: PageLoad = async ({ fetch, params }) => {
   
   const id = Number(params.id)
 

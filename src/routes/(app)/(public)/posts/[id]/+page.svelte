@@ -19,7 +19,7 @@
 		'Dec'
 	];
 
-	$: post = data.post as Post;
+	$: post = data.post;
 	$: date = new Date(data.post.createdAt);
 	$: dateString = `${date.getDate()}. ${MONTH_NAMES[date.getMonth()]} ${date.getFullYear()}`;
 </script>
@@ -31,7 +31,7 @@
 			<p class="text-sm text-neutral-500">
 				<span>{dateString}</span> -
 				<a href={`/users/tmp-author-id`} class="underline hover:text-white focus-within:text-white"
-					>tmp author</a
+					>{post.user.username}</a
 				>
 			</p>
 		</header>

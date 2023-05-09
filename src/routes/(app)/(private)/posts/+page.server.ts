@@ -3,8 +3,14 @@ import { prisma } from "@/lib/server/prisma";
 import type { Post } from "@prisma/client";
 
 export const actions: Actions = {
-  createPost: async ({ request }) => {
-    const { title, content } = Object.fromEntries(await request.formData()) as { title: string, content: string }
+  createPost: async ({ request, locals }) => {
+
+    const { user, session } = await locals.auth.validateUser()
+    if (!(user && session)) {
+      throw redirect(302, '/login?redirectTo=/post')
+    }
+
+    const { title, content } = Object.fromEntries(await request.formData()) as Record<string, string>
 
     let post: Post
     try {
@@ -12,7 +18,8 @@ export const actions: Actions = {
         data: {
           title,
           content,
-          published: true
+          published: true,
+          authUserId: user.userId
         }
       })
     } catch (err) {

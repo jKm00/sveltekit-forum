@@ -2,17 +2,7 @@
 	import { theme } from '@/stores/theme';
 	import { clickOutside } from 'svelte-use-click-outside';
 
-	type User = {
-		uuid: string;
-		username: string;
-		avatar: string;
-	};
-
-	let user: undefined | User = {
-		uuid: 'a3094d9e-e79a-11ed-a05b-0242ac120003',
-		username: 'Joakim',
-		avatar: 'https://picsum.photos/30/30'
-	};
+	export let data;
 
 	let showUserOptions = false;
 
@@ -31,6 +21,7 @@
 
 <svelte:window on:keydown={onKeyDown} />
 
+<!-- Main navigation -->
 <nav class={`mb-10`}>
 	<!-- left nav -->
 	<div class="m-auto max-w-4xl flex justify-between items-center py-5">
@@ -76,21 +67,30 @@
 					<ul
 						class="grid gap-4 absolute right-0 top-full bg-neutral-800 p-4 rounded text-sm w-44 shadow-lg"
 					>
-						{#if user !== undefined}
+						{#if data.user !== null}
 							<li>
 								<a
 									class={`hover:underline hover:${$theme.text} focus-within:underline focus-within:${$theme.text}`}
-									href={`/users/${user.uuid}`}
+									href={`/users/${data.user.username}`}
 									on:click={() => (showUserOptions = false)}
-									>{user.username}
+									>{data.user.username}
 								</a>
 							</li>
 							<li>
 								<a
 									class={`hover:underline hover:${$theme.text} focus-within:underline focus-within:${$theme.text}`}
-									href={`/users/${user.uuid}/settings`}
+									href={`/users/${data.user.username}/settings`}
 									on:click={() => (showUserOptions = false)}>Settings</a
 								>
+							</li>
+							<li>
+								<form action="/logout" method="POST">
+									<button
+										type="submit"
+										class={`hover:underline hover:${$theme.text} focus-within:underline focus-within:${$theme.text}`}
+										>Logout</button
+									>
+								</form>
 							</li>
 						{:else}
 							<li>
@@ -115,6 +115,7 @@
 	</div>
 </nav>
 
+<!-- Search spotlight -->
 <dialog
 	class="bg-transparent backdrop:bg-neutral-900 backdrop:bg-opacity-70 p-0 -top-2/3"
 	bind:this={dialog}

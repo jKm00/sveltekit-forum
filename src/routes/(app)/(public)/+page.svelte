@@ -60,7 +60,8 @@
 			<article class="grid gap-10 bg-neutral-800 py-4 px-6 rounded shadow">
 				<header class="flex justify-between">
 					<h2 class="text-xl font-bold">{post.title}</h2>
-					<p class="text-sm text-neutral-400">tmp author</p>
+					<!-- TODO: Replace with username -->
+					<p class="text-sm text-neutral-400">{post.user.username}</p>
 				</header>
 				<p class="">{post.content}</p>
 				<footer class="flex gap-10 text-neutral-400">

@@ -3,7 +3,12 @@ import { prisma } from "@/lib/server/prisma";
 export const GET = async () => {
     try {
         const posts = await prisma.post.findMany({
-            where: { published: true }
+            where: { 
+                published: true 
+            },
+            include: {
+                user: true
+            }
         });
         return new Response(JSON.stringify(posts), { status: 200 })
     } catch (err) {
