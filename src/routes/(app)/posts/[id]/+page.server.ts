@@ -7,7 +7,9 @@ export const load = async ({ params }) => {
         id: Number(params.id)
       },
       include: {
-        user: true
+        user: true,
+        likes: true,
+        comment: true
       }
     })
     if (!post) {
@@ -22,6 +24,49 @@ export const load = async ({ params }) => {
 };
 
 export const actions: Actions = {
+  likePost: async ({ url, locals }) => {
+    const postId = url.searchParams.get('id')
+    if (!postId) {
+      fail(404, { message: 'Post not found' })
+    }
+
+    // Make sure user is authenticated
+    const { user, session } = await locals.auth.validateUser()
+    if (!(user && session)) {
+      throw redirect(302, `/login?redirectTo=/posts/${postId}`)
+    }
+
+    try {
+      // Check if user has liked post
+      const likedPost = await prisma.likes.findFirst({
+        where: {
+          userId: user.userId,
+          postId: Number(postId)
+        }
+      })
+
+      if (!likedPost) {
+        // Like post
+        await prisma.likes.create({
+          data: {
+            userId: user.userId,
+            postId: Number(postId)
+          }
+        })
+      } else {
+        // Unlike post
+        await prisma.likes.delete({
+          where: {
+            id: likedPost.id
+          }
+        })
+      }
+    } catch(err) {
+      fail(500, { message: 'Could not like post' })
+    }
+
+    throw redirect(302, `/posts/${postId}`)
+  },
   deletePost: async ({ url, locals }) => {
     // Check if any user is authrozied
     const { user, session } = await locals.auth.validateUser()

@@ -7,8 +7,9 @@ export const load = async () => {
         published: true
       },
       include: {
-        user: true
-      }
+        user: true,
+        likes: true
+      },
     })
   }
 };
