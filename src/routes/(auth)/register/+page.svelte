@@ -1,72 +1,68 @@
 <script lang="ts">
 	import { theme } from '@/stores/theme';
+	import { superForm } from 'sveltekit-superforms/client';
+	import type { PageData } from './$types';
+	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
+	import { newUserSchema } from '@/lib/validations/newUserSchema';
 
-	export let form;
+	export let data: PageData;
+
+	const { form, errors, enhance } = superForm(data.form);
 </script>
 
 <div class="grid gap-10">
 	<h2 class={`text-3xl ${$theme.text} font-bold uppercase`}>Register</h2>
-	<form action="?/register" method="POST" class="grid gap-4 w-80 text-neutral-950">
+	<form action="?/register" method="POST" class="grid gap-4 w-80 text-neutral-950" use:enhance>
 		<div class="grid gap-1">
 			<input
-				class="px-2 py-1 rounded {form?.errors?.email ? 'outline outline-red-400 outline-2' : ''}"
+				class="px-2 py-1 rounded"
 				id="email"
 				name="email"
 				type="text"
 				placeholder="Email"
-				value={form?.data?.email ?? ''}
+				bind:value={$form.email}
 			/>
-			{#if form?.errors?.email}
-				<label class="text-red-400 text-start text-xs" for="email">{form?.errors?.email[0]}</label>
+			{#if $errors.email}
+				<p class="text-xs text-red-400 text-left">{$errors.email[0]}</p>
 			{/if}
 		</div>
 		<div class="grid gap-1">
 			<input
-				class="px-2 py-1 rounded {form?.errors?.username
-					? 'outline outline-red-400 outline-2'
-					: ''}"
+				class="px-2 py-1 rounded"
 				id="username"
 				name="username"
 				type="text"
 				placeholder="Username"
-				value={form?.data?.username ?? ''}
+				bind:value={$form.username}
 			/>
-			{#if form?.errors?.username}
-				<label class="text-red-400 text-start text-xs" for="username"
-					>{form?.errors?.username[0]}</label
-				>
+			{#if $errors.username}
+				<p class="text-xs text-red-400 text-left">{$errors.username[0]}</p>
 			{/if}
 		</div>
 		<div class="grid gap-1">
 			<input
-				class="px-2 py-1 rounded {form?.errors?.password
-					? 'outline outline-red-400 outline-2'
-					: ''}"
+				class="px-2 py-1 rounded"
 				id="password"
 				name="password"
 				type="password"
 				placeholder="Password"
+				bind:value={$form.password}
 			/>
-			{#if form?.errors?.password}
-				<label class="text-red-400 text-start text-xs" for="password"
-					>{form?.errors?.password[0]}</label
-				>
+			{#if $errors.password}
+				<p class="text-xs text-red-400 text-left">{$errors.password[0]}</p>
 			{/if}
 		</div>
 		<div class="grid gap-1">
 			<input
-				class="px-2 py-1 rounded {form?.errors?.passwordConfirm
-					? 'outline outline-red-400 outline-2'
-					: ''}"
+				class="px-2 py-1 rounded"
 				id="passwordConfirm"
 				name="passwordConfirm"
 				type="password"
 				placeholder="Confirm password"
+				bind:value={$form.passwordConfirm}
 			/>
-			{#if form?.errors?.passwordConfirm}
-				<label class="text-red-400 text-start text-xs" for="confirmPassword"
-					>{form?.errors?.passwordConfirm[0]}</label
-				>
+			{#if $errors.passwordConfirm}
+				<p class="text-xs text-red-400 text-left">{$errors.passwordConfirm[0]}</p>
 			{/if}
 		</div>
 		<button
